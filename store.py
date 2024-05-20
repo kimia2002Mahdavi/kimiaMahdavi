@@ -13,3 +13,13 @@ def __init__(self):
 
 def add_product(self, product_name, inventory, price):
     self.inventory[product_name] = {"inventory": inventory, "price": price}
+
+def run(self):
+    while True:
+        print("Hello and welcome to the supermarket, please enter your name:")
+        customer_name = input()
+
+        if customer_name == "boss":
+            self.handle_boss()
+        else:
+            self.handle_customer(customer_name)
