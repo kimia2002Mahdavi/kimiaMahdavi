@@ -86,4 +86,8 @@ def handle_customer(self, customer_name):
             self.add_new_product()
         else:
             print("Invalid selection.")
+            
+def get_customer_names(self):
+    return [customer_name for customer_name, _, _ in self.customers]
+
         
