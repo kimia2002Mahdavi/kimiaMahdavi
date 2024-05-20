@@ -86,8 +86,9 @@ def handle_customer(self, customer_name):
             self.add_new_product()
         else:
             print("Invalid selection.")
-            
+
 def get_customer_names(self):
     return [customer_name for customer_name, _, _ in self.customers]
 
-        
+def get_out_of_stock_products(self):
+    return [product_name for product_name in self.inventory if self.inventory[product_name]["inventory"] == 0]
