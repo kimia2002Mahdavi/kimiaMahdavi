@@ -23,3 +23,31 @@ def run(self):
             self.handle_boss()
         else:
             self.handle_customer(customer_name)
+def handle_customer(self, customer_name):
+    print(f"hi {customer_name} ,list product")
+    for product_name, product_info in self.inventory.items():
+        print(f"- {product_name}: {product_info['inventory']} price: {product_info['price']} ")
+
+    chosen_product = input("Please select your desired product: ")
+    if chosen_product not in self.inventory:
+        print(f"  The'{chosen_product}' is not available")
+        return
+
+    product_info = self.inventory[chosen_product]
+    if product_info["inventory"] == 0:
+        print(f" The '{chosen_product}' product is finished")
+        return
+
+    quantity = int(input(f"{chosen_product} Enter the number you want"))
+    if quantity > product_info["inventory"]:
+        print(f"{chosen_product} {product_info['inventory']} This number is not available")
+        return
+
+    price = product_info["price"] * quantity
+    if input(f"Do you want a discount?(yes/no): ").lower() == "yes":
+        price -= 10
+
+    self.income += price
+    product_info["inventory"] -= quantity
+    self.customers.append((customer_name, chosen_product, quantity))
+    print(f"Thanks for your purchase{customer_name} Your payment amount{price} ")
