@@ -8,3 +8,8 @@ def __init__(self):
         "cake": {"inventory": 5, "price": 50},
         "ice_cream": {"inventory": 15, "price": 150},
     }
+    self.income = 0
+    self.customers = []
+
+def add_product(self, product_name, inventory, price):
+    self.inventory[product_name] = {"inventory": inventory, "price": price}
